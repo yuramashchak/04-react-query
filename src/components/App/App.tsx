@@ -54,10 +54,13 @@ function App() {
   movies = {data.results}
   onSelect={setSelectedMovie}
   />}
-  {data && data.total_pages > 1 && <Pagination 
-  totalPages={data?.total_pages ?? 0}
-  selected={page}
-  onPageChange={setPage}/>}
+  {data && data.total_pages > 1 && (
+  <Pagination
+    pageCount={data.total_pages}
+    forcePage={page - 1}
+    onPageChange={setPage}
+  />
+)}
     </>
   )
 }
